@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Store items and catalog products",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "image": { "type": "string" },
+        "altText": { "type": "string" },
+        "description": { "type": "string" },
+        "dimensions": { "type": "string" },
+        "materials": { "type": "string" },
+        "inStock": { "type": "boolean" },
+        "stockCount": { "type": "number" },
+        "sku": { "type": "string" }
+      },
+      "required": ["id", "name", "category", "price", "image"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "User messages and chat inquiries sent to the store",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userName": { "type": "string" },
+        "topic": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["message"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Orders placed by customers through WhatsApp or web checkout",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "customerAddress": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "shipping": { "type": "number" },
+        "total": { "type": "number" },
+        "date": { "type": "string" },
+        "status": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["orderNumber", "customerName", "items", "total"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Product catalog documents"
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "Customer inquiries and chat communications"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer order records"
+    }
+  }
+}

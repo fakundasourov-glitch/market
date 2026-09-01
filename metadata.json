@@ -1,0 +1,7 @@
+{
+  "name": "MinimalistShop",
+  "description": "Authentic Minimalist Skincare & curated lifestyle essentials with instant WhatsApp ordering and store administration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
